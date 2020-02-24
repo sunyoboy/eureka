@@ -841,7 +841,7 @@ public class DiscoveryClient implements EurekaClient {
     }
 
     /**
-     * Register with the eureka service by making the appropriate REST call.
+     * Register with the eureka service by making the appropriate REST call. 注册
      */
     boolean register() throws Throwable {
         logger.info(PREFIX + "{}: registering service...", appPathIdentifier);
@@ -859,7 +859,7 @@ public class DiscoveryClient implements EurekaClient {
     }
 
     /**
-     * Renew with the eureka service by making the appropriate REST call
+     * Renew with the eureka service by making the appropriate REST call 续约
      */
     boolean renew() {
         EurekaHttpResponse<InstanceInfo> httpResponse;
@@ -936,7 +936,7 @@ public class DiscoveryClient implements EurekaClient {
     }
 
     /**
-     * unregister w/ the eureka service.
+     * unregister w/ the eureka service. 取消注册
      */
     void unregister() {
         // It can be null if shouldRegisterWithEureka == false
@@ -1271,7 +1271,7 @@ public class DiscoveryClient implements EurekaClient {
      */
     private void initScheduledTasks() {
         if (clientConfig.shouldFetchRegistry()) {
-            // registry cache refresh timer
+            // registry cache refresh timer 服务获取
             int registryFetchIntervalSeconds = clientConfig.getRegistryFetchIntervalSeconds();
             int expBackOffBound = clientConfig.getCacheRefreshExecutorExponentialBackOffBound();
             cacheRefreshTask = new TimedSupervisorTask(
@@ -1293,7 +1293,7 @@ public class DiscoveryClient implements EurekaClient {
             int expBackOffBound = clientConfig.getHeartbeatExecutorExponentialBackOffBound();
             logger.info("Starting heartbeat executor: " + "renew interval is: {}", renewalIntervalInSecs);
 
-            // Heartbeat timer
+            // Heartbeat timer 服务续约
             heartbeatTask = new TimedSupervisorTask(
                     "heartbeat",
                     scheduler,
